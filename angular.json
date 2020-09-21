@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",  
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "apcode-checkpoint-app"
+    }
+  },
+  "defaultProject": "apcode-checkpoint-app",
+  "cli": {
+    "analytics": "da30296e-3764-42aa-a6ac-42aff97579e5"
+  }
 }
