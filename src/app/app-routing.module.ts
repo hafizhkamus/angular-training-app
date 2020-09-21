@@ -6,8 +6,8 @@ import { AboutComponent } from './about/about.component';
 const routes: Routes = [
   {
     path : '',
-    component:HomeComponent,
-    pathMatch: "full"
+    redirectTo:'/home',
+    pathMatch: 'full'
   },
   {
     path : "home",
