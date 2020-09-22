@@ -4,6 +4,7 @@ import {ProvinsiService} from './service/provinsi.service';
 import {Provinsi} from './service/provinsi';
 import { Router, ActivatedRoute } from '@angular/router';
 import { data } from 'jquery';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-provinsi',
@@ -31,7 +32,7 @@ export class ProvinsiComponent implements OnInit {
         this.form.get("kodeBps").setValue( data.kodeBps);
         this.form.get("namaProvinsi").setValue(data.namaProvinsi);
       }, error => {
-        alert("data kosong");
+        swal("Data Empty");
       });
     });
 
@@ -43,10 +44,10 @@ export class ProvinsiComponent implements OnInit {
     prov.kodeBps = this.form.value.kodeBps;
     prov.namaProvinsi = this.form.value.namaProvinsi;
     this._service.insertProv(prov).subscribe((data) => {
-      console.log(data);
+      swal("Data Saved!", "list-provinsi has been deleted", "success");
       this._router.navigate(["/list-provinsi"]);
     }, error => {
-      alert("cannot input data");
+      swal("Cannot insert data", "your data in unable to save", "error");
     });
   }
 

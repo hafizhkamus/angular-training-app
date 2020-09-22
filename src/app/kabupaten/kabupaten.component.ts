@@ -5,6 +5,7 @@ import { ProvinsiService } from '../provinsi/service/provinsi.service';
 import { Kabupaten } from './service/kabupaten';
 import { Provinsi } from '../provinsi/service/provinsi';
 import { Router, ActivatedRoute } from '@angular/router';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-kabupaten',
@@ -33,13 +34,13 @@ export class KabupatenComponent implements OnInit {
     this.service.dataProv().subscribe( (data ) =>{
       this.listProvinsi = data
     }, error => {
-      alert("cannot catch data");
+      swal("cannot catch data", "data error", "error");
     });
 
     this._service.dataKab().subscribe( (data ) =>{
       this.listKab = data
     }, error => {
-      alert("cannot catch data");
+      swal("cannot catch data","data error", "error");
     });
    
    }
@@ -52,7 +53,7 @@ export class KabupatenComponent implements OnInit {
         this.form.get("namaKabupaten").setValue(data.namaKabupaten);
         this.form.get("kodeProvinsi").setValue(data.kodeProvinsi);
       }, error => {
-        alert("data kosong");
+        swal("data kosong");
       });
     });
   }
@@ -68,10 +69,10 @@ export class KabupatenComponent implements OnInit {
     prov.namaProvinsi = this.form.value.provinsi;
     this._service.insertKabupaten(kabs).subscribe((data) => {
       console.log(data);
-      alert("insert success");
+      swal("Data Saved", "list kabupaten has been updated", "success");
       this._router.navigate(["/list-kabupaten"]);
     }, error => {
-      alert("cannot input data");
+      swal("cannot input data", "your data is invalid", "error");
     });
   }
 
