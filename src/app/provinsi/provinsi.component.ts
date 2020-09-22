@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {ProvinsiService} from './service/provinsi.service';
 import {Provinsi} from './service/provinsi';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-provinsi',
@@ -13,7 +14,7 @@ export class ProvinsiComponent implements OnInit {
 
   form : FormGroup;
 
-  constructor(private _service : ProvinsiService) { }
+  constructor(private _service : ProvinsiService, private _router : Router) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -30,6 +31,9 @@ export class ProvinsiComponent implements OnInit {
     prov.namaProvinsi = this.form.value.namaProvinsi;
     this._service.insertProv(prov).subscribe((data) => {
       console.log(data);
+      this._router.navigate(["/list-provinsi"]);
+    }, error => {
+      alert("cannot input data");
     });
   }
 

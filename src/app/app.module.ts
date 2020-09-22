@@ -11,6 +11,9 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { FriendsComponent } from './friends/friends.component';
 import { ProvinsiComponent } from './provinsi/provinsi.component';
+import { ProvnisiListComponent } from './provnisi-list/provnisi-list.component';
+import { KabupatenComponent } from './kabupaten/kabupaten.component';
+import { KabupatenListComponent } from './kabupaten/kabupaten-list/kabupaten-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ProvinsiComponent } from './provinsi/provinsi.component';
     AboutComponent,
     ContactComponent,
     FriendsComponent,
-    ProvinsiComponent
+    ProvinsiComponent,
+    ProvnisiListComponent,
+    KabupatenComponent,
+    KabupatenListComponent
   ],
   imports: [
     BrowserModule,

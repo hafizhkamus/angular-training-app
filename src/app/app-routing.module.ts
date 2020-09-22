@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProvinsiComponent } from './provinsi/provinsi.component';
+import { ProvnisiListComponent } from './provnisi-list/provnisi-list.component';
+import { KabupatenComponent } from './kabupaten/kabupaten.component';
+import {KabupatenListComponent} from './kabupaten/kabupaten-list/kabupaten-list.component';
 
 const routes: Routes = [
   {
@@ -21,6 +24,18 @@ const routes: Routes = [
   {
     path: "provinsi",
     component: ProvinsiComponent
+  },
+  {
+    path:'list-provinsi',
+    component: ProvnisiListComponent
+  },
+  {
+    path:'save-kabupaten',
+    component: KabupatenComponent
+  },
+  {
+    path: 'list-kabupaten',
+    component: KabupatenListComponent 
   }
 ];
 

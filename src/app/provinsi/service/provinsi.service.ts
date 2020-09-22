@@ -16,6 +16,11 @@ export class ProvinsiService {
     return this._http.post(environment.baseUrl +'/provinsi/save', provinsi)
     .pipe(map(data => data));
   }
+
+  dataProv(): Observable<Provinsi[]>{
+    return this._http.get(environment.baseUrl +'/list-provinsi')
+    .pipe(map(data => <Provinsi[]> data));
+  }
 }
 
 
