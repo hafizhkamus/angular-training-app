@@ -15,8 +15,8 @@
                 </div>
             </div>
             <div class="form-gourp">
-                <select class="form-control" id="dataprovinsi" formControlName="kodeProvinsi" [disabled]="form.get('kodeProvinsi').valid">
-                    <option *ngFor="let provinsi of listProvinsi" [value]="provinsi.kodeBps">
+                <select class="form-control" id="dataprovinsi" formControlName="kodeProvinsi">
+                    <option *ngFor="let provinsi of listProvinsi" [value]="provinsi.kodeBps" [disabled]="form.get('kodeProvinsi').valid">
                         <p>
                             {{provinsi.namaProvinsi}}
                         </p>
