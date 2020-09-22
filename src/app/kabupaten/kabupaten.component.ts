@@ -4,7 +4,7 @@ import { KabupatenService } from './service/kabupaten.service';
 import { ProvinsiService } from '../provinsi/service/provinsi.service';
 import { Kabupaten } from './service/kabupaten';
 import { Provinsi } from '../provinsi/service/provinsi';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-kabupaten',
@@ -13,15 +13,17 @@ import { Router } from '@angular/router';
 })
 export class KabupatenComponent implements OnInit {
 
+  id : string;
+
   form : FormGroup;
 
   // listKab : Kabupaten[];
 
   listProvinsi : Provinsi[];
 
-  constructor(private _service : KabupatenService , private service : ProvinsiService, private _router : Router) { }
+  listKab : Kabupaten[];
 
-  ngOnInit(): void {
+  constructor(private _service : KabupatenService , private service : ProvinsiService, private _router : Router, private activateRouter : ActivatedRoute) {
     this.form = new FormGroup({
       "kodeBps" : new FormControl(null, [Validators.required]),
       "namaKabupaten" : new FormControl(null, [Validators.required]),
@@ -34,11 +36,25 @@ export class KabupatenComponent implements OnInit {
       alert("cannot catch data");
     });
 
-    // this._service.dataKab().subscribe( (data ) =>{
-    //   this.listKab = data
-    // }, error => {
-    //   alert("cannot catch data");
-    // });
+    this._service.dataKab().subscribe( (data ) =>{
+      this.listKab = data
+    }, error => {
+      alert("cannot catch data");
+    });
+   
+   }
+
+  ngOnInit(): void {
+    this.activateRouter.params.subscribe( rute => {
+      this.id = rute.id;
+      this._service.dataKabsById(this.id).subscribe( data => {
+        this.form.get("kodeBps").setValue( data.kodeBps);
+        this.form.get("namaKabupaten").setValue(data.namaKabupaten);
+        this.form.get("kodeProvinsi").setValue(data.kodeProvinsi);
+      }, error => {
+        alert("data kosong");
+      });
+    });
   }
 
   save(): void{
@@ -58,5 +74,6 @@ export class KabupatenComponent implements OnInit {
       alert("cannot input data");
     });
   }
+
 
 }

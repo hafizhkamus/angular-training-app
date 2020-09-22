@@ -23,4 +23,9 @@ export class KabupatenService {
     .pipe(map(data => <Kabupaten[]> data));
   }
 
+  dataKabsById(id): Observable<Kabupaten>{
+    return this._http.get(environment.baseUrl +'/kabupatendetails/'+id)
+    .pipe(map(data => data as Kabupaten));
+  }
+
 }

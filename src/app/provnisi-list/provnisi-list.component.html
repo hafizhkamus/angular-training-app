@@ -16,7 +16,7 @@
                             <tr *ngFor="let provinsi of listProvinsi">
                                 <td>{{provinsi.kodeBps}}</td>
                                 <td>{{provinsi.namaProvinsi}}</td>
-                                <td [routerLink]="provinsi.kodeBps"><a>edit</a></td>
+                                <td routerLink="/editprovinsi/{{provinsi.kodeBps}}"><a>edit</a></td>
                             </tr>
                         </tbody>
                     </table>

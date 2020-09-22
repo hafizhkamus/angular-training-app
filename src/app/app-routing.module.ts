@@ -6,6 +6,7 @@ import { ProvinsiComponent } from './provinsi/provinsi.component';
 import { ProvnisiListComponent } from './provnisi-list/provnisi-list.component';
 import { KabupatenComponent } from './kabupaten/kabupaten.component';
 import {KabupatenListComponent} from './kabupaten/kabupaten-list/kabupaten-list.component';
+import { Kabupaten } from './kabupaten/service/kabupaten';
 
 const routes: Routes = [
   {
@@ -36,6 +37,16 @@ const routes: Routes = [
   {
     path: 'list-kabupaten',
     component: KabupatenListComponent 
+  },
+  {
+    path: 'editprovinsi/:id',
+    component: ProvinsiComponent,
+    pathMatch: "full"
+  },
+  {
+    path: 'editkabupaten/:id',
+    component: KabupatenComponent,
+    pathMatch: "full"
   }
 ];
 

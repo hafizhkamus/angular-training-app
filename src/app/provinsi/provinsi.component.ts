@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {ProvinsiService} from './service/provinsi.service';
 import {Provinsi} from './service/provinsi';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-provinsi',
@@ -12,14 +13,26 @@ import { Router } from '@angular/router';
 })
 export class ProvinsiComponent implements OnInit {
 
+  id : string;
   form : FormGroup;
 
-  constructor(private _service : ProvinsiService, private _router : Router) { }
-
-  ngOnInit(): void {
+  constructor(private _service : ProvinsiService, private _router : Router, private activateRouter: ActivatedRoute) { 
     this.form = new FormGroup({
       "kodeBps" : new FormControl(null, [Validators.required]),
       "namaProvinsi" : new FormControl(null, [Validators.required])
+    });
+  }
+
+  ngOnInit(): void {
+
+    this.activateRouter.params.subscribe( rute => {
+      this.id = rute.id;
+      this._service.dataProvById(this.id).subscribe( data => {
+        this.form.get("kodeBps").setValue( data.kodeBps);
+        this.form.get("namaProvinsi").setValue(data.namaProvinsi);
+      }, error => {
+        alert("data kosong");
+      });
     });
 
   }

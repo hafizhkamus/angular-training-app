@@ -21,6 +21,11 @@ export class ProvinsiService {
     return this._http.get(environment.baseUrl +'/list-provinsi')
     .pipe(map(data => <Provinsi[]> data));
   }
+
+  dataProvById(id): Observable<Provinsi>{
+    return this._http.get(environment.baseUrl +'/provinsidetails/'+id)
+    .pipe(map(data => data as Provinsi));
+  }
 }
 
 
