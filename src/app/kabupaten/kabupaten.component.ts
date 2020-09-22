@@ -4,6 +4,7 @@ import { KabupatenService } from './service/kabupaten.service';
 import { ProvinsiService } from '../provinsi/service/provinsi.service';
 import { Kabupaten } from './service/kabupaten';
 import { Provinsi } from '../provinsi/service/provinsi';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kabupaten',
@@ -18,7 +19,7 @@ export class KabupatenComponent implements OnInit {
 
   listProvinsi : Provinsi[];
 
-  constructor(private _service : KabupatenService , private service : ProvinsiService) { }
+  constructor(private _service : KabupatenService , private service : ProvinsiService, private _router : Router) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -52,6 +53,7 @@ export class KabupatenComponent implements OnInit {
     this._service.insertKabupaten(kabs).subscribe((data) => {
       console.log(data);
       alert("insert success");
+      this._router.navigate(["/list-kabupaten"]);
     }, error => {
       alert("cannot input data");
     });
