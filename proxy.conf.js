@@ -3,8 +3,8 @@ const PROXY_CFG = [
         context: [
             "/api"
         ],
-    
-        target: "https://localhost/3333",
+
+        target: "http://localhost:3333",
         secure: false
     }
     ]

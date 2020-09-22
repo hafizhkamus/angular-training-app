@@ -12,7 +12,7 @@ export class ProvinsiService {
 
   constructor(private _http : HttpClient) { }
 
-  save(provinsi: Provinsi): Observable<any>{
+  insertProv(provinsi: Provinsi): Observable<any>{
     return this._http.post(environment.baseUrl +'/provinsi/save', provinsi)
     .pipe(map(data => data));
   }
