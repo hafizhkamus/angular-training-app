@@ -5,7 +5,6 @@ import { Kecamatan } from './service/kecamatan';
 import { ProvinsiService } from '../provinsi/service/provinsi.service';
 import { Provinsi } from '../provinsi/service/provinsi';
 import { Kabupaten } from '../kabupaten/service/kabupaten';
-import { KabupatenService } from '../kabupaten/service/kabupaten.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert';
 
@@ -32,8 +31,7 @@ export class KecamatanComponent implements OnInit {
     private _service : KecamatanService,
     private serviceProv : ProvinsiService, 
     private activateRouter : ActivatedRoute,
-    private _router : Router,
-    private serviceKabs : KabupatenService) { 
+    private _router : Router) { 
 
       this.form = new FormGroup({
         "idKecamatan" : new FormControl(null, [Validators.required]),
