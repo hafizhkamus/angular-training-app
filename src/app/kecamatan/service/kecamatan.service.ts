@@ -25,7 +25,7 @@ export class KecamatanService {
 }
 
 dataKecById(id): Observable<Kecamatan>{
-  return this._http.get(environment.baseUrl +'/kabupatendetails/'+id)
+  return this._http.get(environment.baseUrl +'/kecamatandetails/'+id)
   .pipe(map(data => data as Kecamatan));
 }
 
