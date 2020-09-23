@@ -15,6 +15,8 @@ import { ProvinsiComponent } from './provinsi/provinsi.component';
 import { ProvnisiListComponent } from './provnisi-list/provnisi-list.component';
 import { KabupatenComponent } from './kabupaten/kabupaten.component';
 import { KabupatenListComponent } from './kabupaten/kabupaten-list/kabupaten-list.component';
+import { KecamatanComponent } from './kecamatan/kecamatan.component';
+import { KecamatanListComponent } from './kecamatan/kecamatan-list/kecamatan-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { KabupatenListComponent } from './kabupaten/kabupaten-list/kabupaten-lis
     ProvinsiComponent,
     ProvnisiListComponent,
     KabupatenComponent,
-    KabupatenListComponent
+    KabupatenListComponent,
+    KecamatanComponent,
+    KecamatanListComponent
   ],
   imports: [
     BrowserModule,

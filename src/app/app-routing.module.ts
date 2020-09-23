@@ -7,6 +7,8 @@ import { ProvnisiListComponent } from './provnisi-list/provnisi-list.component';
 import { KabupatenComponent } from './kabupaten/kabupaten.component';
 import {KabupatenListComponent} from './kabupaten/kabupaten-list/kabupaten-list.component';
 import { Kabupaten } from './kabupaten/service/kabupaten';
+import { KecamatanComponent } from './kecamatan/kecamatan.component';
+import { KecamatanListComponent } from './kecamatan/kecamatan-list/kecamatan-list.component';
 
 const routes: Routes = [
   {
@@ -47,7 +49,21 @@ const routes: Routes = [
     path: 'editkabupaten/:id',
     component: KabupatenComponent,
     pathMatch: "full"
+  },
+  {
+    path:'save-kecamatan',
+    component: KecamatanComponent
+  },
+  {
+    path: 'list-kecamatan',
+    component: KecamatanListComponent
+  },
+  {
+    path: 'editKecamatan/:id',
+    component: KecamatanComponent,
+    pathMatch: "full"
   }
+
 ];
 
 @NgModule({
