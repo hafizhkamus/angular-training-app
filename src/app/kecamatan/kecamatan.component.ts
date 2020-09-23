@@ -5,6 +5,7 @@ import { Kecamatan } from './service/kecamatan';
 import { ProvinsiService } from '../provinsi/service/provinsi.service';
 import { Provinsi } from '../provinsi/service/provinsi';
 import { Kabupaten } from '../kabupaten/service/kabupaten';
+import { KabupatenService } from '../kabupaten/service/kabupaten.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert';
 
@@ -12,7 +13,7 @@ import swal from 'sweetalert';
   selector: 'app-kecamatan',
   templateUrl: './kecamatan.component.html',
   styleUrls: ['./kecamatan.component.scss'],
-  providers: [KecamatanService, ProvinsiService]
+  providers: [KecamatanService, ProvinsiService, KabupatenService]
 })
 export class KecamatanComponent implements OnInit {
 
@@ -31,7 +32,8 @@ export class KecamatanComponent implements OnInit {
     private _service : KecamatanService,
     private serviceProv : ProvinsiService, 
     private activateRouter : ActivatedRoute,
-    private _router : Router) { 
+    private _router : Router,
+    private serviceKabs : KabupatenService) { 
 
       this.form = new FormGroup({
         "idKecamatan" : new FormControl(null, [Validators.required]),
@@ -46,11 +48,11 @@ export class KecamatanComponent implements OnInit {
         swal("cannot catch data", "data error", "error");
       });
 
-      // this.serviceKabs.dataKab().subscribe( (data ) =>{
-      //   this.listKab = data
-      // }, error => {
-      //   swal("cannot catch data", "data error", "error");
-      // });
+      this.serviceKabs.dataKab().subscribe( (data ) =>{
+        this.listKab = data
+      }, error => {
+        swal("cannot catch data", "data error", "error");
+      });
   
       this._service.dataKec().subscribe( (data ) =>{
         this.listKec = data
