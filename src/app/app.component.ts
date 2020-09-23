@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Checkpoint App';
+
+  insert = [
+    {
+      link:'/provinsi',
+      name:'Provinsi'
+    },
+    {
+      link:'/save-kabupaten',
+      name:'Kabupaten'
+    },
+    {
+      link:'/save-kecamatan',
+      name:'Kecamatan'
+    }
+  ]
 }

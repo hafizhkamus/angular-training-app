@@ -1,44 +1,76 @@
-<style>
-  .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+<section style="width: 1350px;" >
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+    <span class="site-heading-upper text-primary mb-3">Aplikasi Hafizh Kasep</span>
+    <span class="site-heading-lower">@kam.argana</span>
+  </h1>
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
-</style>
-  <div class="cover-container d-flex p-3 mx-auto flex-column text-center">
-    <header class="masthead mb-auto">
-      <div class="inner">
-        <h3 class="masthead-brand">Cover</h3>
-        <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link active" routerLink="/home">Home</a>
-          <a class="nav-link" routerLink="/about-us">about</a>
-          <a class="nav-link" routerLink="/provinsi">insert provinsi</a>
-          <a class="nav-link" routerLink="/list-provinsi">Provinsi</a>
-          <a class="nav-link" routerLink="/save-kabupaten">insert kabupaten</a>
-          <a class="nav-link" routerLink="/list-kabupaten">Kabupaten</a>
-          <a class="nav-link" routerLink="/save-kecamatan">insert kecamatan</a>
-          <a class="nav-link" routerLink="/list-kecamatan">Kecamatan</a>
-        </nav>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" routerLink="/home">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" routerLink="/about-us">About</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu5" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Insert
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                <a class="dropdown-item" *ngFor="let input of insert" [routerLink]="input.link">{{input.name}}</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" routerLink="/list-provinsi">Provinsi</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" routerLink="/list-kabupaten">Kabupaten</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" routerLink="/list-kecamatan">Kecamatan</a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </div>
+  </nav>
 
-    <main role="main" class="inner cover">
+  <section class="page-section clearfix">
+    <div class="container">
       <router-outlet></router-outlet>
-    </main>
+    </div>
+  </section>
 
-    <footer class="mastfoot mt-auto">
-      <div class="inner">
-        <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+  <!-- <section class="page-section cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">Our Promise</span>
+              <span class="section-heading-lower">To You</span>
+            </h2>
+            <p class="mb-0">When you walk into our shop to start your day, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please let us know and we will do whatever we can to make things right!</p>
+          </div>
+        </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </section> -->
 
+  <footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+    </div>
+  </footer>
+</section>  
