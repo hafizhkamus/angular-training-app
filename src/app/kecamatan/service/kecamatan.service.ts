@@ -5,6 +5,8 @@ import { Kabupaten } from '../../kabupaten/service/kabupaten';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import {map} from 'rxjs/operators';
+import { Datatablesrequest } from 'src/app/datatables/datatablesrequest.mode';
+import { DataTablesResponse } from 'src/app/datatables/datatablesresponse.model';
 
 
 @Injectable({
@@ -33,4 +35,20 @@ dataKabsById(idProv): Observable<Kabupaten[]>{
   return this._http.get(environment.baseUrl +'/listkabupaten/'+ idProv)
   .pipe(map(data => data as Kabupaten[]));
 }
+
+getAllKecamatan(parameter: Map<string, any>, datatableParameters: any): Observable<DataTablesResponse>{
+  const param = new Datatablesrequest();
+  param.draw = datatableParameters.draw;
+  param.length = datatableParameters.length;
+  param.start = datatableParameters.start;
+  param.sortCol = datatableParameters.order[0].column;
+  param.sortDir = datatableParameters.order[0].dir;
+
+  parameter.forEach((value, key) =>{
+    param.extraParam[key]= value ;
+  });
+  return this._http.post(environment.baseUrl +'/listkecamatandatatable/', param)
+  .pipe(map(data => data as DataTablesResponse));
+}
+
 }

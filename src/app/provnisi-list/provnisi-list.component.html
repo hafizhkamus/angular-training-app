@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <section class="my-5">
         <br><br><br>
         <div class="container">
@@ -24,4 +24,37 @@
             </div>
         </div>
     </section>
+</div> -->
+
+<!-- <table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <!-- <thead>
+      <tr>
+        <th>NO</th>
+        <th>Nama Provinsi</th>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let provinsi of listProvinsi; index as i">
+            <td>{{i + 1}}</td>
+            <td>{{ provinsi.namaProvinsi }}</td>
+            <td>{{ provinsi.kodeBps }}</td>
+        </tr>
+    </tbody> -->
+<!-- </table> -->
+
+<form class="form-inline" [formGroup]="cari">
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="nama" class="sr-only">cari provinsi</label>
+        <input type="text" class="form-control" id="nama" name="nama" placeholder="Search" formControlName="namaProvinsi">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" (click)="search()">Search</button>
+</form> 
+<br><br>
+<h3>Daftar Provinsi</h3>
+<div class="row">
+    <div class="col-md-12">
+        <table datatable [dtOptions]="dtOptions" class="cards table table-sm table-hover" style="width: 100%;">
+        </table>
+    </div>
 </div>

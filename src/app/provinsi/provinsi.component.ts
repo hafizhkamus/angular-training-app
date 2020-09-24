@@ -51,4 +51,15 @@ export class ProvinsiComponent implements OnInit {
     });
   }
 
+  delete(): void{
+    console.log(this.form.get("kodeBps"));
+    const prov = new Provinsi();
+    prov.kodeBps = this.form.get("kodeBps");
+    this._service.deleteProv(prov).subscribe((data) => {
+      swal("Data deleted", "data has been delete", "warning");
+    }, error =>{
+      swal("delete is doesn't work!!", "data cannot be delete", "error");
+    });
+  }
+
 }

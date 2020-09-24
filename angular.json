@@ -38,7 +38,9 @@
               "node_modules/jquery/dist/jquery.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "src/assets/jquery/bootstrap.bundle.min.js",
-              "src/assets/jquery/jquery.min.js"
+              "src/assets/jquery/jquery.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.min.js"
             ]
           },
           "configurations": {
